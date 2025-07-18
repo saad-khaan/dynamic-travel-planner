@@ -129,6 +129,26 @@ body {
   margin-top: 2rem;
 }
 
+/* Itineraries */
+
+.table {
+  color: #fff;
+}
+
+.table-dark {
+  --bs-table-bg: transparent;
+  --bs-table-striped-bg: rgba(255,255,255,0.05);
+  --bs-table-hover-bg: rgba(0, 234, 255, 0.1);
+}
+
+.table th {
+  border-color: rgba(255,255,255,0.2);
+}
+
+.table td {
+  border-color: rgba(255,255,255,0.1);
+}
+
 /* Animations */
 @keyframes fadeInDown {
   from { opacity: 0; transform: translateY(-20px); }
