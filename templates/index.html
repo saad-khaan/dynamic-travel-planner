@@ -17,8 +17,18 @@
 </div>
 
 {% if message %}
-<div class="alert alert-success">
+<div class="alert alert-success mt-3">
   {{ message }}
+</div>
+{% endif %}
+
+{% if weather %}
+<div class="card mt-4">
+  <h2>🌤 Weather in {{ weather.city }}</h2>
+  <p style="font-size: 1.1rem; margin-bottom: 0;">
+    Temperature: {{ weather.temp }}°C<br>
+    Conditions: {{ weather.desc }}
+  </p>
 </div>
 {% endif %}
 
