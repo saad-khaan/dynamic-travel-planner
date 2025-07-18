@@ -1,14 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
-<form method="POST" class="mb-3">
-  <input type="text" name="city" placeholder="City" class="form-control mb-2" required>
-  <input type="date" name="start_date" class="form-control mb-2" required>
-  <input type="date" name="end_date" class="form-control mb-2" required>
-  <button class="btn btn-primary">Save Trip</button>
-</form>
+<h1>Plan Your Next Adventure</h1>
+<p>Save your trips, get AI‑generated itineraries, and explore the world with ease.</p>
+
+<div class="card">
+  <h2>Plan a New Trip</h2>
+  <form method="POST">
+    <input type="text" name="city" class="form-control" placeholder="Destination City" required>
+    <input type="date" name="start_date" class="form-control" required>
+    <input type="date" name="end_date" class="form-control" required>
+    <button class="btn btn-primary mt-2">💾 Save Trip</button>
+  </form>
+</div>
 
 {% if message %}
-<div class="alert alert-success mt-3">
+<div class="alert alert-success">
   {{ message }}
 </div>
 {% endif %}
