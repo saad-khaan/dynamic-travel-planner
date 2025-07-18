@@ -16,7 +16,7 @@ It lets you:
 - Flask web app with modular services  
 - SQLite database for trips  
 - OpenWeather API integration for live weather  
-- OpenAI GPT-powered itinerary suggestions  
+- Cohere GPT-powered itinerary suggestions  
 - PDF export with FPDF  
 
 ---
