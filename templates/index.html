@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="POST" class="mb-3">
+  <input type="text" name="city" placeholder="City" class="form-control mb-2" required>
+  <input type="date" name="start_date" class="form-control mb-2" required>
+  <input type="date" name="end_date" class="form-control mb-2" required>
+  <button class="btn btn-primary">Save Trip</button>
+</form>
+
+{% if message %}
+<div class="alert alert-success mt-3">
+  {{ message }}
+</div>
+{% endif %}
+{% endblock %}
