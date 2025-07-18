@@ -6,7 +6,10 @@
 <div class="card">
   <h2>Plan a New Trip</h2>
   <form method="POST">
-    <input type="text" name="city" class="form-control" placeholder="Destination City" required>
+    <!-- Destination City with autocomplete -->
+    <input type="text" id="city" name="city" class="form-control" placeholder="Destination City" required list="city-suggestions">
+    <datalist id="city-suggestions"></datalist>
+
     <input type="date" name="start_date" class="form-control" required>
     <input type="date" name="end_date" class="form-control" required>
     <button class="btn btn-primary mt-2">💾 Save Trip</button>
@@ -18,4 +21,33 @@
   {{ message }}
 </div>
 {% endif %}
+
+<script>
+  const input = document.getElementById('city');
+  const dataList = document.getElementById('city-suggestions');
+  let timeout;
+
+  input.addEventListener('input', function() {
+    clearTimeout(timeout);
+    const query = this.value.trim();
+    if (query.length < 2) {
+      dataList.innerHTML = '';
+      return;
+    }
+
+    timeout = setTimeout(() => {
+      fetch(`/autocomplete?q=${encodeURIComponent(query)}`)
+        .then(res => res.json())
+        .then(data => {
+          dataList.innerHTML = '';
+          data.forEach(city => {
+            const option = document.createElement('option');
+            option.value = city;
+            dataList.appendChild(option);
+          });
+        })
+        .catch(err => console.error('Autocomplete error:', err));
+    }, 300);
+  });
+</script>
 {% endblock %}
